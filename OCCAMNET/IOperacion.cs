@@ -9,8 +9,10 @@ namespace OCCAMNET
     public interface IOperacion
     {
         string nombre { get; set; }
-        
+
         IParametro[] parametros { get; set; }
+        //Dictionary<string, IParametro> parametros { get; set; }
+
         int ejecutar();
         Func<int> ejecutar2();
     }

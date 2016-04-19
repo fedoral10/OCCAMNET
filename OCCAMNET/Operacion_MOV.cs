@@ -13,6 +13,7 @@ namespace OCCAMNET
 
         public IParametro[] parametros { get; set; }
 
+
         public int ejecutar()
         {
             int retorno = 0;
@@ -28,7 +29,7 @@ namespace OCCAMNET
                 else {
                     if (parametros[0].TIPO == commons.tipo.REGISTRO && parametros[1].TIPO == commons.tipo.INMEDIATO)
                     {
-                        reg reg = commons.getRegistro(parametros[0].identificador);
+                       /* Registro reg = commons.getRegistro(parametros[0].identificador);
                         if (reg == null)
                         {
                             throw new Exception("No existe ese registro");
@@ -36,7 +37,7 @@ namespace OCCAMNET
                         else
                         {
                             reg.valor = parametros[1].valor;
-                        }
+                        }*/
                     }
                 }
             }

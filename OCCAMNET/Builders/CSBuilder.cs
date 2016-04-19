@@ -11,21 +11,27 @@ namespace OCCAMNET.Builders
     class CSBuilder
     {
         private StringBuilder _salida;
-        public CSBuilder(IOperacion oper,string[] lineas, int lcont)
+        public CSBuilder(string nombre,string funcion,string ns)
         {
             this._salida = new StringBuilder();
             _salida.AppendLine("using System;");
-            _salida.AppendLine("namespace TEST");
+            _salida.AppendLine("namespace "+ns);
             _salida.AppendLine("{");
-            _salida.AppendLine("class OPERACION_" + oper.nombre + " : IOperacion");
+            _salida.AppendLine("class OPERACION_" + nombre + " : IOperacion");
             _salida.AppendLine("{");
             
             _salida.AppendLine("public string nombre { get; set; }");
             _salida.AppendLine("public IParametro[] parametros { get; set; }");
-
+            _salida.AppendLine(funcion);
             _salida.AppendLine("}");
             _salida.AppendLine("}");
         }
+
+        public string getClase()
+        {
+            return _salida.ToString();
+        }
+
         public string creaFuncion(string operacion_aritmetica_logica)
         {
             string[] arr = commons.limpia_codigo(operacion_aritmetica_logica).Split(' ');
